@@ -12,81 +12,41 @@ public class Player {
     private Parser parser;
     private Action action;
 
-
     private int moves;
     private int score;
 
     private ArrayList<Item> inventory ;
+    private ArrayList<Item> droppedItems ;
     private int inventoryWeight;
-    private int inventorySize;
 
 
     public Player() {
-        //player essentials
-        this.input = new Scanner(System.in);
-        parser = new Parser();
         //inventory
         this.inventory = new ArrayList<Item>();
+        this.droppedItems = new ArrayList<Item>();
         this.inventoryWeight = 0;
+
         //player points
         this.moves = 0;
         this.score = 0;
+
+        //player essentials
+        this.input = new Scanner(System.in);
+        parser = new Parser();
+        action = new Action(inventory, droppedItems, inventoryWeight);
     }
 
     //player action
 
-    public String makeAction () {
+    public void makeAction () {
         System.out.print("> ");
-        String output = this.input.nextLine();
-        //do something with the output
+        String userInput = this.input.nextLine();
+        String actionType = parser.parseInput(userInput);
+        action.performAction(actionType);
         this.moves++;
-        return output;
+        System.out.println("Moves: " + this.moves + " Score: " + this.score);
     }
 
-
-    //inventory
-    public void getInventory() {
-        System.out.println("You are carrying:");
-        for (Item item : this.inventory) {
-            System.out.println(" " + item.getName());
-        }
-    }
-
-    public void addToInventory (final Item item) {
-        int MAX_WEIGHT = 100;
-        if (inventoryWeight <= MAX_WEIGHT) {
-            this.inventory.add(item);
-            this.inventoryWeight += item.getWeight();
-            System.out.println("(Taken)");
-        } else {
-            System.out.println("You're holding too many things already!");
-            System.out.println("Drop an item");
-        }
-        this.moves++;
-    }
-
-    public void dropFromInventory (final String name) {
-        for (int i=0; i<this.inventory.size(); i++) {
-            Item item = this.inventory.get(i);
-            if (item.getName().equals(name)) {
-                Item removed = this.inventory.remove(i);
-                System.out.println("(Dropped)");
-            } else {
-                System.out.println("Item does not appear to be in your inventory.");
-            }
-        }
-        this.moves++;
-    }
-
-
-
-    public int getMoves() {
-        return moves;
-    }
-
-    public int getScore() {
-        return score;
-    }
 
     public static void main (String [] args) {
         new Player();

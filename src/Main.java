@@ -6,17 +6,23 @@ import java.util.Scanner;
 
 public class Main {
 
+    private boolean hasLost = false;
+
     public Main() {
+
+        //create world
+
+        //populate world
+
+        //set act
+
 
         //create player
         Player player = new Player();
+        player.makeAction();
 
-        Sword s = new Sword();
-        player.addToInventory(s);
 
-        player.dropFromInventory("A Sword");
-        player.getInventory();
-
+        //game loop
 
     }
 

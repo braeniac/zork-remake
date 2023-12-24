@@ -7,7 +7,7 @@ public class Sword implements Item {
     private int weight;
 
     public Sword() {
-        name = "A Sword";
+        name = "sword";
         description="";
 //        weight = ;
     }
