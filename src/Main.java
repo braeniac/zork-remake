@@ -1,28 +1,28 @@
 
-import items.Sword;
 import player.Player;
-
-import java.util.Scanner;
+import world.ActI;
+import world.Room;
 
 public class Main {
 
-    private boolean hasLost = false;
+    private boolean newGame = true;
+    private boolean gameOver = false;
+    private Room currentRoom;
+    private ActI actI;
 
     public Main() {
-
-        //create world
-
-        //populate world
-
-        //set act
-
-
-        //create player
         Player player = new Player();
-        player.makeAction();
-
+        actI = new ActI();
+        Room currentRoom = actI.getRoom();
 
         //game loop
+        do {
+            if (newGame) {
+                System.out.println("ZORK I: The Great Underground Empire");
+                newGame = false;
+            }
+            player.makeAction(currentRoom);
+        } while (!gameOver);
 
     }
 

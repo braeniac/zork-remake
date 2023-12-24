@@ -1,7 +1,7 @@
 package player;
 
 import items.Item;
-import items.Sword;
+import world.Room;
 
 import java.util.ArrayList;
 
@@ -17,45 +17,44 @@ public class Action {
         this.inventory = inventory;
         this.droppedItems = droppedItems;
         this.inventoryWeight = inventoryWeight;
-    }
-
-    public void performAction(final String actionType) {
-
-        Sword s = new Sword();
-        inventory.add(s);
-
-       if (actionType.equals("i")) {
-           getInventory();
-       }
-
 
 
     }
 
-    //-------------------------------------------------------------------------- ACTIONS
 
 
-    //movement commands
-
-
-
-    //item commands
+    public void performAction(final String verb,
+                              final Room room) {
 
 
 
 
+    }
+
+    public void performAction(final String verb,
+                              final String direct,
+                              final Room room) {
+
+        System.out.println(verb + " " + direct);
+    }
+
+    public void performAction(final String verb,
+                              final String direct,
+                              final String prep,
+                              final Room room) {
+        System.out.println(verb + " " + direct + " " + prep);
+    }
 
 
 
+    public void performAction(final String verb,
+                              final String direct,
+                              final String prep,
+                              final String indirect,
+                              final Room room) {
 
-
-
-
-
-
-
-
-
+        System.out.println(verb + " " + direct + " " + prep + " " + indirect);
+    }
 
 
     //inventory
@@ -77,7 +76,6 @@ public class Action {
             System.out.println("Drop an item");
         }
     }
-
 
 
     public void dropFromInventory (final String name) {

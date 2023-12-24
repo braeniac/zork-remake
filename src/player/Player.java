@@ -1,6 +1,7 @@
 package player;
 
 import items.Item;
+import world.Room;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -32,17 +33,16 @@ public class Player {
 
         //player essentials
         this.input = new Scanner(System.in);
-        parser = new Parser();
         action = new Action(inventory, droppedItems, inventoryWeight);
+        parser = new Parser(action);
     }
 
     //player action
 
-    public void makeAction () {
+    public void makeAction (final Room room) {
         System.out.print("> ");
         String userInput = this.input.nextLine();
-        String actionType = parser.parseInput(userInput);
-        action.performAction(actionType);
+        String performAction = parser.parseInput(userInput, room);
         this.moves++;
         System.out.println("Moves: " + this.moves + " Score: " + this.score);
     }
