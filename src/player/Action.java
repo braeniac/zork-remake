@@ -22,20 +22,22 @@ public class Action {
     }
 
 
+    //1 word commands
 
     public void performAction(final String verb,
                               final Room room) {
 
 
-
-
     }
+
+    //2 word commands
 
     public void performAction(final String verb,
                               final String direct,
                               final Room room) {
 
-        System.out.println(verb + " " + direct);
+
+
     }
 
     public void performAction(final String verb,

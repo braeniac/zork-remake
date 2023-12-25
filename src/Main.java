@@ -11,16 +11,19 @@ public class Main {
     private ActI actI;
 
     public Main() {
-        Player player = new Player();
-        actI = new ActI();
-        Room currentRoom = actI.getRoom();
 
-        //game loop
+        Player player = new Player();
+        if (newGame) {
+            System.out.println("ZORK I: The Great Underground Empire");
+            System.out.println(" ");
+            newGame = false;
+        }
+
+        actI = new ActI();
+
+
         do {
-            if (newGame) {
-                System.out.println("ZORK I: The Great Underground Empire");
-                newGame = false;
-            }
+            currentRoom = actI.getRoom();
             player.makeAction(currentRoom);
         } while (!gameOver);
 
