@@ -44,7 +44,7 @@ public class Player {
         String userInput = this.input.nextLine();
         String performAction = parser.parseInput(userInput, room);
         this.moves++;
-        System.out.println("Moves: " + this.moves + " Score: " + this.score);
+        System.out.println("\nMoves: " + this.moves + " Score: " + this.score + "\n");
     }
 
 

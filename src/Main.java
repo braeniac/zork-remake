@@ -11,11 +11,9 @@ public class Main {
     private ActI actI;
 
     public Main() {
-
         Player player = new Player();
         if (newGame) {
-            System.out.println("ZORK I: The Great Underground Empire");
-            System.out.println(" ");
+            System.out.println("\nZORK I: The Great Underground Empire\n");
             newGame = false;
         }
 

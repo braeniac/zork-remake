@@ -12,6 +12,8 @@ public class Room {
     private Map<Boolean, String[]>  canGoSouth;
     private Map<Boolean, String[]>  canGoEast;
     private Map<Boolean, String[]>  canGoWest;
+    private Map<Boolean, String[]>  canGoUp;
+    private Map<Boolean, String[]>  canGoDown;
     private Item[] items;
     private boolean enter;
 
@@ -38,6 +40,30 @@ public class Room {
         this.items = items;
         this.enter = enter;
     }
+
+    public Room (final String name,
+                 final String[] description,
+                 final Map<Boolean, String[]> canGoNorth,
+                 final Map<Boolean, String[]> canGoSouth,
+                 final Map<Boolean, String[]> canGoEast,
+                 final Map<Boolean, String[]> canGoWest,
+                 final Map<Boolean, String[]> canGoUp,
+                 final Map<Boolean, String[]> canGoDown,
+                 final Item[] items,
+                 final boolean enter) {
+        this.name = name;
+        this.description = description;
+        this.canGoNorth = canGoNorth;
+        this.canGoSouth = canGoSouth;
+        this.canGoEast = canGoEast;
+        this.canGoWest = canGoWest;
+        this.canGoUp = canGoUp;
+        this.canGoDown = canGoDown;
+        this.items = items;
+        this.enter = enter;
+    }
+
+
 
 
     public String getName() {
