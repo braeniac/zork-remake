@@ -1,6 +1,7 @@
 
 import player.Player;
 import world.ActI;
+import world.ActII;
 import world.Room;
 
 public class Main {
@@ -18,7 +19,6 @@ public class Main {
         }
 
         actI = new ActI();
-
 
         do {
             currentRoom = actI.getRoom();

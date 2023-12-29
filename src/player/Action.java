@@ -26,8 +26,9 @@ public class Action {
 
     public void performAction(final String verb,
                               final Room room) {
-
-
+        if (verb.equals("i") || verb.equals("inventory")) {
+            getInventory();
+        }
     }
 
     //2 word commands
